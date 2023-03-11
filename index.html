@@ -30,12 +30,7 @@
 	================================================== -->
 	<!--<link rel="shortcut icon" href="favicon.png" >-->
 
-   <style>
-      .mySlides {display:none}
-      .w3-left, .w3-right, .w3-badge {cursor:pointer}
-      .w3-badge {height:13px;width:13px;padding:0}
-      </style>
-
+   
 </head>
 
 <body>
@@ -553,17 +548,18 @@
 
          <div id="modal-04" class="popup-modal mfp-hide">
 
-		      <img class="scale-with-grid mySlides" src="images/ebook/WhatsApp Image 2023-03-10 at 13.24.56 (1).jpeg" alt="" />
-		      <img class="scale-with-grid mySlides" src="images/ebook/WhatsApp Image 2023-03-10 at 13.24.53.jpeg" alt="" />
+            <div class="w3-display-container mySlides">
+		         <img class="scale-with-grid " src="images/ebook/WhatsApp Image 2023-03-10 at 13.24.56 (1).jpeg" alt="" />
+            </div>
 
-            <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle">
-               <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-               <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-               <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-               <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-               <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
-             </div>
+            <div class="w3-display-container mySlides">
+               <img class="scale-with-grid " src="images/ebook/WhatsApp Image 2023-03-10 at 13.24.53.jpeg" alt="" />
 
+            </div>
+		      
+            <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+           
 		      <div class="description-box">
 			      <h4>E-BOOK</h4>
 			      <p>The idea of our project is the creation of a cross-platform mobile application with
@@ -855,26 +851,18 @@
         showDivs(slideIndex += n);
       }
       
-      function currentDiv(n) {
-        showDivs(slideIndex = n);
-      }
-      
       function showDivs(n) {
         var i;
         var x = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
         if (n > x.length) {slideIndex = 1}
         if (n < 1) {slideIndex = x.length}
         for (i = 0; i < x.length; i++) {
-          x[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" w3-white", "");
+           x[i].style.display = "none";  
         }
         x[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " w3-white";
       }
       </script>
+      
       
 
 </body>
