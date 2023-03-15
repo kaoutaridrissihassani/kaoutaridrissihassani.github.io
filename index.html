@@ -34,6 +34,43 @@
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 .mySlides {display:none;}
+
+.slideshow-container {
+  position: relative;
+}
+
+.slideshow-container img {
+  display: none;
+}
+
+.slideshow-container img:first-child {
+  display: block;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: -30px;
+  border: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
 </style>
 
    
@@ -810,23 +847,20 @@
          
          <div id="modal-05" class="popup-modal mfp-hide">
 
-            <div class="w3-content w3-display-container"> 
+            <div class="slideshow-container"> 
 
-               <div class="w3-display-container mySlides">
+               
                   <img class="scale-with-grid mySlides" src="images/qt/1.PNG" alt="" />
-                  <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-                  </div>
-               </div>
+                 
 
 
-               <div class="w3-display-container mySlides">
+            
                   <img class="scale-with-grid mySlides" src="images/qt/2.PNG" alt="" />
-                  <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-                  </div>
-               </div>
+                
+               
 
-               <button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
-               <button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+               <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+               <button class="next" onclick="plusSlides(1)">&#10095;</button>
 
             </div>
 
@@ -1110,6 +1144,31 @@
         x[slideIndex-1].style.display = "block";  
       }
       </script>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slideshow-container")[0].getElementsByTagName("img");
+  var buttons = document.getElementsByClassName("slideshow-container")[0].getElementsByTagName("button");
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove("active");
+  }
+  slides[slideIndex-1].style.display = "block";
+  buttons[slideIndex-1].classList.add("active");
+}
+</script>
       
       
 
